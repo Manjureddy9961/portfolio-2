@@ -1,0 +1,66 @@
+/* styles/variables.css */
+:root {
+  /* Core Colors */
+  --bg-color: #0b0f19;
+  --bg-color-light: #161d2a;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #38bdf8;       /* Electric Blue Accent */
+  --accent-color-hover: #0284c7;
+  
+  /* Layout & Glassmorphism */
+  --glass-bg: rgba(22, 29, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(12px);
+
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 15px rgba(56, 189, 248, 0.3);
+  --shadow-glow-strong: 0 0 25px rgba(56, 189, 248, 0.5);
+  
+  /* Sections padding */
+  --section-pad: 100px 0;
+  
+  /* Maximum Width */
+  --container-width: 1140px;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-color-light);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Global Selection */
+::selection {
+  background-color: var(--accent-color);
+  color: #fff;
+}
