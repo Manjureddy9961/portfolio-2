@@ -303,7 +303,7 @@ img {
 
 /* --- Sections Common --- */
 section {
-  padding: var(--section-pad, 100px 0);
+  padding: 50px 0;
 }
 
 /* Cards & Glassmorphism */
@@ -813,7 +813,7 @@ section {
   
   .hero-title { font-size: 2.8rem; }
   .hero-subtitle { font-size: 1.5rem; }
-  .section-pad { padding: 70px 0; }
+  section { padding: 60px 0; }
   
   .timeline::before { left: 10px; }
   .timeline-dot { left: 1px; }
@@ -826,5 +826,6 @@ section {
   .social-links { justify-content: center; margin-top: 1rem; }
   .about-highlights { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
-  .section-title { width: 100%; white-space: normal; word-wrap: break-word; }
+  .section-title { width: 100%; white-space: normal; word-wrap: break-word; margin-bottom: 2rem; }
+  section { padding: 40px 0; }
 }
