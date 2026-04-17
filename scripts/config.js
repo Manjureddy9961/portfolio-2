@@ -13,9 +13,9 @@ const PORTFOLIO_CONFIG = {
     phone: "+91-7382783093",
     email: "manjunadhareddydevulapalli@gmail.com",
     whatsapp: "https://wa.me/917382783093",
-    linkedin: "https://www.linkedin.com/in/manojkumarthammisetti",
-    instagram: "https://instagram.com/YOUR_INSTAGRAM_ID", 
-    github: "https://github.com/YOUR_GITHUB_USERNAME", 
+    linkedin: "https://www.linkedin.com/in/manjunadha-reddy-devulapalli-3134a0297",
+    instagram: "https://www.instagram.com/_manju__05_/?__pwa=1", 
+    github: "https://github.com/Manjureddy9961/", 
   },
   // File Paths
   assets: {

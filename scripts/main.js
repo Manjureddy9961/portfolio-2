@@ -206,4 +206,86 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 9. Scroll Progress Bar ---
+  const scrollBar = document.getElementById('scroll-bar');
+  window.addEventListener('scroll', () => {
+    if (!scrollBar) return;
+    const scrollPosition = window.scrollY;
+    // Calculate total layout height minus viewport height
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = (scrollPosition / documentHeight) * 100;
+    scrollBar.style.width = scrollPercentage + '%';
+  });
+
+  // --- 10. Custom Cursor ---
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorOutline = document.getElementById('cursor-outline');
+
+  if (cursorDot && cursorOutline && window.innerWidth > 768) {
+    window.addEventListener('mousemove', (e) => {
+      cursorDot.style.left = e.clientX + 'px';
+      cursorDot.style.top = e.clientY + 'px';
+      
+      cursorOutline.animate({
+        left: e.clientX + 'px',
+        top: e.clientY + 'px'
+      }, { duration: 500, fill: "forwards" });
+    });
+
+    const hoverables = document.querySelectorAll('a, button, input, textarea, .glass-card, .skill-tag, .social-icon');
+    hoverables.forEach(el => {
+      el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
+    });
+  }
+
+  // --- 11. 3D Card Tilt Effect ---
+  const cards = document.querySelectorAll('.glass-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      if(window.innerWidth < 768) return; // Disable tilt on mobile
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Limit rotation slightly for smooth elegant effect
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      card.style.transition = 'transform 0.1s ease';
+      card.style.zIndex = '10'; // Brings hovered card to top perfectly
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      card.style.transition = 'transform 0.5s ease';
+      card.style.zIndex = '1';
+    });
+  });
+
+  // --- 12. Magnetic Buttons & Socials ---
+  const magneticElements = document.querySelectorAll('.btn, .social-icon, .project-link');
+  magneticElements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      if(window.innerWidth < 768) return;
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      // Distance multiplier
+      el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      el.style.transition = 'transform 0.1s ease-out';
+    });
+    
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = `translate(0px, 0px)`;
+      // Fast bouncy reset curve
+      el.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    });
+  });
+
 });

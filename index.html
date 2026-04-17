@@ -25,8 +25,13 @@
 </head>
 
 <body>
-
-  <!-- Preloader -->
+  
+  <!-- Custom UI Enhancements -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scroll-bar"></div>
+  </div> <!-- Preloader -->
   <div id="preloader">
     <div class="loader"></div>
   </div>
@@ -118,12 +123,12 @@
         <div class="glass-card skill-category">
           <h3><i class="fas fa-laptop-code"></i> Languages</h3>
           <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">SQL</span>
+            <span class="skill-tag" data-tech="Python">Python</span>
+            <span class="skill-tag" data-tech="Java">Java</span>
+            <span class="skill-tag" data-tech="JavaScript">JavaScript</span>
+            <span class="skill-tag" data-tech="HTML">HTML</span>
+            <span class="skill-tag" data-tech="CSS">CSS</span>
+            <span class="skill-tag" data-tech="SQL">SQL</span>
           </div>
         </div>
 
@@ -131,10 +136,10 @@
         <div class="glass-card skill-category">
           <h3><i class="fas fa-layer-group"></i> Frameworks & DB</h3>
           <div class="skill-tags">
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">Node.js Basics</span>
-            <span class="skill-tag">React Basics</span>
+            <span class="skill-tag" data-tech="Django">Django</span>
+            <span class="skill-tag" data-tech="MySQL">MySQL</span>
+            <span class="skill-tag" data-tech="Node">Node.js Basics</span>
+            <span class="skill-tag" data-tech="React">React Basics</span>
           </div>
         </div>
 
@@ -142,11 +147,11 @@
         <div class="glass-card skill-category">
           <h3><i class="fas fa-wrench"></i> Tools</h3>
           <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Google Colab</span>
-            <span class="skill-tag">Figma</span>
+            <span class="skill-tag" data-tech="Git">Git</span>
+            <span class="skill-tag" data-tech="GitHub">GitHub</span>
+            <span class="skill-tag" data-tech="VSCode">VS Code</span>
+            <span class="skill-tag" data-tech="Colab">Google Colab</span>
+            <span class="skill-tag" data-tech="Figma">Figma</span>
           </div>
         </div>
       </div>
@@ -216,7 +221,7 @@
         <!-- Project 1 -->
         <article class="glass-card project-card">
           <div class="project-img-container">
-            <img src="assets/project1.jpg" alt="Blood Donation System"
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800" alt="Blood Donation System"
               onerror="this.src='https://placehold.co/600x400/2a3342/ffffff?text=Blockchain+Project'">
           </div>
           <div class="project-info">
@@ -229,7 +234,7 @@
               <span class="project-tag">Python</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/Manjureddy9961/Blood-Donation-" target="_blank" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
               <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
@@ -238,7 +243,7 @@
         <!-- Project 2 -->
         <article class="glass-card project-card">
           <div class="project-img-container">
-            <img src="assets/project2.jpg" alt="IoT Smart Case"
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" alt="IoT Smart Case"
               onerror="this.src='https://placehold.co/600x400/2a3342/ffffff?text=IoT+Project'">
           </div>
           <div class="project-info">
@@ -259,7 +264,7 @@
         <!-- Project 3 -->
         <article class="glass-card project-card">
           <div class="project-img-container">
-            <img src="assets/project3.jpg" alt="Portfolio Website"
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="Portfolio Website"
               onerror="this.src='https://placehold.co/600x400/2a3342/ffffff?text=Portfolio'">
           </div>
           <div class="project-info">
@@ -272,7 +277,7 @@
               <span class="project-tag">JavaScript</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/Manjureddy9961/portfolio-2" target="_blank" class="project-link" title="Source Code"><i class="fab fa-github"></i></a>
             </div>
           </div>
         </article>

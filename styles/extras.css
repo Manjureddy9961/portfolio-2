@@ -73,3 +73,92 @@ body.light-mode .project-img-container {
   background: var(--glass-bg);
   color: var(--accent-color);
 }
+
+/* =========================================
+   1. Custom Cursor 
+   ========================================= */
+body {
+  cursor: none; /* Hide default cursor */
+}
+
+a, button, input, textarea, .glass-card, .skill-tag {
+  cursor: none; /* Hide on interactables to use our own */
+}
+
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0; left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.cursor-dot {
+  width: 8px; height: 8px;
+  background-color: var(--accent-color);
+}
+
+.cursor-outline {
+  width: 40px; height: 40px;
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  transition: width 0.2s, height 0.2s, border 0.2s, background-color 0.2s;
+}
+
+.cursor-outline.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(56, 189, 248, 0.1);
+  border-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  body, a, button, input, textarea, .glass-card, .skill-tag { cursor: auto; }
+  .cursor-dot, .cursor-outline { display: none; }
+}
+
+/* =========================================
+   2. Scroll Progress Bar
+   ========================================= */
+.scroll-progress-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: transparent;
+  z-index: 10001; /* Above header */
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  transition: width 0.1s;
+}
+
+/* =========================================
+   3. Brand Colored Skill Tags
+   ========================================= */
+.skill-tag {
+  transition: all 0.3s ease;
+}
+
+.skill-tag[data-tech="Python"]:hover { border-color: #3776AB; color: #FFE873; background: rgba(55,118,171,0.15); box-shadow: 0 0 10px rgba(55,118,171,0.3); }
+.skill-tag[data-tech="Java"]:hover { border-color: #ED8B00; color: #f89820; background: rgba(237,139,0,0.15); box-shadow: 0 0 10px rgba(237,139,0,0.3); }
+.skill-tag[data-tech="JavaScript"]:hover { border-color: #F7DF1E; color: #F7DF1E; background: rgba(247,223,30,0.15); box-shadow: 0 0 10px rgba(247,223,30,0.3);}
+.skill-tag[data-tech="HTML"]:hover { border-color: #E34F26; color: #E34F26; background: rgba(227,79,38,0.15); box-shadow: 0 0 10px rgba(227,79,38,0.3);}
+.skill-tag[data-tech="CSS"]:hover { border-color: #1572B6; color: #1572B6; background: rgba(21,114,182,0.15); box-shadow: 0 0 10px rgba(21,114,182,0.3);}
+.skill-tag[data-tech="SQL"]:hover { border-color: #4479A1; color: #4479A1; background: rgba(68,121,161,0.15); box-shadow: 0 0 10px rgba(68,121,161,0.3);}
+.skill-tag[data-tech="Django"]:hover { border-color: #092E20; color: #44B78B; background: rgba(68,183,139,0.15); box-shadow: 0 0 10px rgba(68,183,139,0.3);}
+.skill-tag[data-tech="MySQL"]:hover { border-color: #00758F; color: #F29111; background: rgba(0,117,143,0.15); box-shadow: 0 0 10px rgba(0,117,143,0.3);}
+.skill-tag[data-tech="Node"]:hover { border-color: #339933; color: #339933; background: rgba(51,153,51,0.15); box-shadow: 0 0 10px rgba(51,153,51,0.3);}
+.skill-tag[data-tech="React"]:hover { border-color: #61DAFB; color: #61DAFB; background: rgba(97,218,251,0.15); box-shadow: 0 0 10px rgba(97,218,251,0.3);}
+.skill-tag[data-tech="Git"]:hover { border-color: #F05032; color: #F05032; background: rgba(240,80,50,0.15); box-shadow: 0 0 10px rgba(240,80,50,0.3);}
+.skill-tag[data-tech="GitHub"]:hover { border-color: #ffffff; color: #ffffff; background: rgba(255,255,255,0.1); box-shadow: 0 0 10px rgba(255,255,255,0.3);}
+.skill-tag[data-tech="VSCode"]:hover { border-color: #007ACC; color: #007ACC; background: rgba(0,122,204,0.15); box-shadow: 0 0 10px rgba(0,122,204,0.3);}
+.skill-tag[data-tech="Colab"]:hover { border-color: #F9AB00; color: #F9AB00; background: rgba(249,171,0,0.15); box-shadow: 0 0 10px rgba(249,171,0,0.3);}
+.skill-tag[data-tech="Figma"]:hover { border-color: #F24E1E; color: #F24E1E; background: rgba(242,78,30,0.15); box-shadow: 0 0 10px rgba(242,78,30,0.3);}
+
+/* Magnetic button reset transition */
+.btn {
+  will-change: transform;
+}
