@@ -151,29 +151,39 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Formspree is integrated via the action attribute in HTML
-      // Here we just show a simple UI feedback while submitting
+      
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
       btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
       btn.disabled = true;
 
-      // In a real scenario with formspree:
       const formData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
+      const statusEl = document.getElementById('form-status');
+      
+      if (statusEl) {
+        statusEl.textContent = "";
+      }
+
+      fetch('/submit', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json())
+        .then(data => {
+        if (data.success) {
           form.reset();
           btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
           btn.style.background = '#22c55e'; // Success green
+          if (statusEl) {
+            statusEl.textContent = "Successfully saved to contacts.csv locally!";
+            statusEl.style.color = "#22c55e";
+          }
         } else {
-          btn.innerHTML = 'Error! Try Again <i class="fas fa-times"></i>';
+          btn.innerHTML = 'Error! <i class="fas fa-times"></i>';
           btn.style.background = '#ef4444'; // Error red
+          if (statusEl) {
+            statusEl.textContent = "Error saving to local backend.";
+            statusEl.style.color = "#ef4444";
+          }
         }
         setTimeout(() => {
           btn.innerHTML = originalText;
@@ -181,11 +191,17 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.disabled = false;
         }, 3000);
       }).catch(error => {
-        btn.innerHTML = 'Error! Try Again <i class="fas fa-times"></i>';
+        btn.innerHTML = 'Backend Offline <i class="fas fa-times"></i>';
+        btn.style.background = '#ef4444'; // Error red
+        if (statusEl) {
+          statusEl.textContent = "Ensure your local app.py is running.";
+          statusEl.style.color = "#ef4444";
+        }
         setTimeout(() => {
           btn.innerHTML = originalText;
+          btn.style.background = '';
           btn.disabled = false;
-        }, 3000);
+        }, 4000);
       });
     });
   }

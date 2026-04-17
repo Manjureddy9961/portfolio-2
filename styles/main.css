@@ -52,9 +52,10 @@ img {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-title::after {
@@ -824,4 +825,6 @@ section {
   .hero-buttons { flex-direction: column; }
   .social-links { justify-content: center; margin-top: 1rem; }
   .about-highlights { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .section-title { width: 100%; white-space: normal; word-wrap: break-word; }
 }
