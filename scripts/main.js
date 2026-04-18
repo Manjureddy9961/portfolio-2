@@ -158,15 +158,26 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
 
       const formData = new FormData(form);
+      const payload = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message')
+      };
+
       const statusEl = document.getElementById('form-status');
       
       if (statusEl) {
         statusEl.textContent = "";
       }
 
-      fetch('/submit', {
+      // Send POST request with JSON to the backend server
+      fetch('http://localhost:3000/submit', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
       }).then(response => response.json())
         .then(data => {
         if (data.success) {
@@ -194,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.innerHTML = 'Backend Offline <i class="fas fa-times"></i>';
         btn.style.background = '#ef4444'; // Error red
         if (statusEl) {
-          statusEl.textContent = "Ensure your local app.py is running.";
+          statusEl.textContent = "Ensure your Node.js backend (server.js) is running on port 3000.";
           statusEl.style.color = "#ef4444";
         }
         setTimeout(() => {
